@@ -46,6 +46,14 @@ export function Welcome() {
         </p>
       </div>
 
+      <div className="rounded-xl overflow-hidden">
+        <img
+          src={`${import.meta.env.BASE_URL}hacker-magnifying-glass.webp`}
+          alt="Hacker examining code through a magnifying glass"
+          className="w-full max-h-72 object-cover object-top"
+        />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {navTopics.map((topic) => {
           const Icon = iconMap[topic.icon as IconName] ?? Terminal;

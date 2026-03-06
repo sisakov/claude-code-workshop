@@ -27,9 +27,13 @@ Single-page application: a Claude Code workshop reference site deployed to GitHu
 
 **Pages** (`src/pages/`) are thin components that import from the data files and render using shared components. Adding a new page requires: (1) a new entry in `topics.ts`, (2) a new file in `src/pages/`, (3) a new `<Route>` in `App.tsx`.
 
-**UI components** (`src/components/ui/`) are shadcn/ui components that were created manually — do not use the shadcn CLI (it fails on non-empty directories). Copy the component source from shadcn docs and place it in `src/components/ui/`.
+**UI components** (`src/components/ui/`) are shadcn/ui components that were created manually — do not use the shadcn CLI (it fails on non-empty directories). Copy the component source from shadcn docs and place it in `src/components/ui/`. Note: `button.tsx` intentionally uses red (`bg-red-600`) as its default variant — this is not a bug.
 
 **Shared components** (`src/components/shared/`): `CodeBlock` (syntax-highlighted code with copy button), `CopyButton`, `ExternalLink`.
+
+**Path alias**: `@/` maps to `src/` — use this for all imports within the project.
+
+**Icons**: The `icon` field in `topics.ts` is a Lucide React icon name string (e.g. `"Home"`, `"Terminal"`). `Sidebar.tsx` resolves these dynamically via `lucide-react`.
 
 ## Critical Configuration
 

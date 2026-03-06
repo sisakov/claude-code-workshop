@@ -7,10 +7,14 @@ import {
   Terminal,
   Puzzle,
   Dumbbell,
+  LaptopMinimal,
+  Monitor,
 } from "lucide-react";
 import { topics } from "@/data/topics";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "@/hooks/useTheme";
 
 const iconMap = {
   Home,
@@ -26,6 +30,7 @@ type IconName = keyof typeof iconMap;
 
 export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="flex flex-col h-full">
@@ -70,10 +75,17 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
         </nav>
       </ScrollArea>
 
-      <div className="px-4 py-3 border-t">
+      <div className="px-4 py-3 border-t flex items-center justify-between">
         <p className="text-xs text-muted-foreground">
           Claude Code Workshop · 2025
         </p>
+        <Button variant="ghost" size="icon" onClick={toggleTheme} className="h-7 w-7 shrink-0">
+          {theme === "dark" ? (
+            <LaptopMinimal className="h-4 w-4" />
+          ) : (
+            <Monitor className="h-4 w-4" />
+          )}
+        </Button>
       </div>
     </div>
   );
